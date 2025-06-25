@@ -23,9 +23,15 @@ const user = {
     setEvents(userEvents){
         this.commits = userEvents.map(function (event) {
             if (event.type === 'PushEvent') {
-                return `${event.repo.name} - ${event.payload.commits[0].message}`
+                return {
+                    repoName: event.repo.name,
+                    commit: event.payload.commits[0].message
+                }
             } else if (event.type === 'CreateEvent') {
-                return "Sem mensagem de commit"
+                return {
+                    repoName: event.repo.name,
+                    commit: 'Sem mensagem de commit'
+                }
             }
         });
     }

@@ -31,7 +31,7 @@ const screen = {
         }
 
         let userEvents = ""
-        user.commits.forEach(event => userEvents += `<li>${event}</li>`)
+        user.commits.forEach(event => userEvents += `<li><strong>${event.repoName}</strong> - ${event.commit}</li>`)
         this.userProfile.innerHTML +=  `<div class="events section">
                                                 <h2>Eventos do Usuário</h2>
                                                 <ul>${userEvents}</ul>
